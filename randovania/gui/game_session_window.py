@@ -677,8 +677,12 @@ class GameSessionWindow(QtWidgets.QMainWindow, Ui_GameSessionWindow, BackgroundT
         self.reset_session_action.setEnabled(self_is_admin and game_session.state != GameSessionState.SETUP)
 
     def update_session_actions(self):
+        scrollbar = self.history_table_widget.verticalScrollBar()
+        autoscroll = scrollbar.value() == QtWidgets.QScrollBar.maximum(scrollbar)
         self.history_table_widget.horizontalHeader().setVisible(True)
         self.history_table_widget.setRowCount(len(self._game_session.actions))
+        if autoscroll:
+            scrollbar.setValue(QtWidgets.QScrollBar.maximum(scrollbar))
         for i, action in enumerate(self._game_session.actions):
             self.history_table_widget.setItem(i, 0, QtWidgets.QTableWidgetItem(action.message))
             self.history_table_widget.setItem(i, 1, QtWidgets.QTableWidgetItem(action.time.astimezone().strftime("%c")))

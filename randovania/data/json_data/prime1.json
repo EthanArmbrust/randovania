@@ -27497,7 +27497,7 @@
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
-                            "pickup_index": 1,
+                            "pickup_index": 2,
                             "major_location": false,
                             "connections": {
                                 "Dock to Ruins Entrance": {
@@ -27511,7 +27511,7 @@
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
-                            "pickup_index": 2,
+                            "pickup_index": 1,
                             "major_location": false,
                             "connections": {
                                 "Dock to Ruins Entrance": {
@@ -28744,7 +28744,7 @@
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
-                            "pickup_index": 100,
+                            "pickup_index": 9,
                             "major_location": false,
                             "connections": {
                                 "Dock to Training Chamber Access": {
@@ -30300,7 +30300,7 @@
                                     "type": "and",
                                     "data": []
                                 },
-                                "Pickup (Missile Expansion)": {
+                                "Pickup (Missile Expansion Missile Wall)": {
                                     "type": "and",
                                     "data": [
                                         {
@@ -30314,7 +30314,7 @@
                                         }
                                     ]
                                 },
-                                "Pickup (Missile Expansion 2)": {
+                                "Pickup (Missile Expansion Tunnel)": {
                                     "type": "or",
                                     "data": [
                                         {
@@ -30387,7 +30387,7 @@
                             }
                         },
                         {
-                            "name": "Pickup (Missile Expansion)",
+                            "name": "Pickup (Missile Expansion Missile Wall)",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
@@ -30401,7 +30401,7 @@
                             }
                         },
                         {
-                            "name": "Pickup (Missile Expansion 2)",
+                            "name": "Pickup (Missile Expansion Tunnel)",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
@@ -32342,7 +32342,7 @@
                             "dock_type": 0,
                             "dock_weakness_index": 4,
                             "connections": {
-                                "Pickup (Missile Expansion)": {
+                                "Pickup (Missile Expansion Lower)": {
                                     "type": "and",
                                     "data": [
                                         {
@@ -32356,7 +32356,7 @@
                                         }
                                     ]
                                 },
-                                "Pickup (Missile Expansion 2)": {
+                                "Pickup (Missile Expansion Upper)": {
                                     "type": "or",
                                     "data": [
                                         {
@@ -32387,7 +32387,7 @@
                             }
                         },
                         {
-                            "name": "Pickup (Missile Expansion)",
+                            "name": "Pickup (Missile Expansion Lower)",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",
@@ -32401,7 +32401,7 @@
                             }
                         },
                         {
-                            "name": "Pickup (Missile Expansion 2)",
+                            "name": "Pickup (Missile Expansion Upper)",
                             "heal": false,
                             "coordinates": null,
                             "node_type": "pickup",

@@ -158,6 +158,35 @@ class SeedDetailsWindow(CloseEventWidget, Ui_SeedDetailsWindow, BackgroundTaskMi
         QApplication.clipboard().setText(commands)
         await async_dialog.execute_dialog(message_box)
 
+
+    async def _show_dialog_for_prime1_layout(self):
+        from randovania.games.prime import randomprime_patcher
+
+        patches = self.layout_description.all_patches[self.current_player_index]
+        game = default_database.game_description_for(RandovaniaGame.PRIME1)
+
+        item_names = []
+        for index in range(game.world_list.num_pickup_nodes):
+            p_index = PickupIndex(index)
+            if p_index in patches.pickup_assignment:
+                name = patches.pickup_assignment[p_index].pickup.name
+            else:
+                name = "Missile Expansion"
+            item_names.append(name)
+
+        layout_string = randomprime_patcher.item_list_to_layout_string(item_names)
+        starting_location = patches.starting_location
+
+        commands = "\n".join([
+            f'set seed="{layout_string}"',
+        ])
+        message_box = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Information, "Commands for patcher",
+                                            commands)
+        common_qt_lib.set_default_window_icon(message_box)
+        message_box.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        QApplication.clipboard().setText(commands)
+        await async_dialog.execute_dialog(message_box)
+
     @asyncSlot()
     async def _export_iso(self):
         layout = self.layout_description
@@ -166,6 +195,8 @@ class SeedDetailsWindow(CloseEventWidget, Ui_SeedDetailsWindow, BackgroundTaskMi
 
         if layout.permalink.get_preset(self.current_player_index).configuration.game == RandovaniaGame.PRIME3:
             return await self._show_dialog_for_prime3_layout()
+        if layout.permalink.get_preset(self.current_player_index).configuration.game == RandovaniaGame.PRIME1:
+            return await self._show_dialog_for_prime1_layout()
 
         if not options.is_alert_displayed(InfoAlert.FAQ):
             await async_dialog.message_box(self, QtWidgets.QMessageBox.Icon.Information, "FAQ",
